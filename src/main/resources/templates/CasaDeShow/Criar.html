@@ -9,7 +9,7 @@
 	
 	<section layout:fragment="conteudo">
 		<h4>Cadastrar Casa de Show</h4>
-		<form method="POST" action="/Casas">
+		<form method="POST" action="/Casas" th:object="${casa}">
 			<div class="alert alert-success"
 				th:if="${!#strings.isEmpty(mensagem)}">
 				<span th:text="${mensagem}"></span>
@@ -19,7 +19,7 @@
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 				<div class="col">
-					<input type="text" id="Endereco" class="form-control"
+					<input type="text"  id="Endereco" class="form-control"
 						name="Endereco" placeholder="Endereço">
 				</div>
 				<div class="col">

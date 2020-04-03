@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+
+import com.sun.istack.NotNull;
 
 @Entity
 public class CasaDeShow {
@@ -11,9 +14,17 @@ public class CasaDeShow {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long CasaDeShowId;
+	@NotNull
+	@NotEmpty
 	public String Endereco;
+	@NotEmpty
+	@NotNull
 	public String NomeDaCasa;
 
+	public CasaDeShow() {
+		
+	}
+	
 	public CasaDeShow(Long casaDeShowId, String endereco, String nomeDaCasa) {
 		CasaDeShowId = casaDeShowId;
 		Endereco = endereco;

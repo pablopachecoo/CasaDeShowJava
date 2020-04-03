@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<title>Eventos</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<h4>Cadastrar Evento</h4>
+	<form method="POST" action="/Eventos">
+		<div class="alert alert-success"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}"></span>
+		</div>
+		<div class="row">
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+			<div class="col">
+				<input type="text" id="NomeDoEvento" class="form-control"
+					name="NomeDoEvento" placeholder="NomeDoEvento">
+			</div>
+			<div class="col">
+				<input type="text" id="CapacidadeDoEvento" class="form-control"
+					name="CapacidadeDoEvento" placeholder="CapacidadeDoEvento">
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="col">
+				<input type="text" id="QuantidadeDeIngressos" class="form-control"
+					name="QuantidadeDeIngressos" placeholder="QuantidadeDeIngressos">
+			</div>
+			<div class="col">
+				<input type="text" id="DataDoEvento" class="form-control"
+					name="DataDoEvento" placeholder="DataDoEvento">
+			</div>
+			<div class="col">
+				<input type="text" id="ValorDoIngresso" class="form-control"
+					name="ValorDoIngresso" placeholder="ValorDoIngresso">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<input type="text" id="GeneroDoEvento" class="form-control"
+					name="GeneroDoEvento" placeholder="GeneroDoEvento">
+			</div>
+			<div class="col">
+				<select name="casadeshow" id="casadeshow">
+					<option value="0">Escolha uma casa</option>
+					<option th:each="casa : ${casas}" th:value="${casa.CasaDeShowId}" th:text="${casa.NomeDaCasa}"> </option>
+				</select>
+			</div>
+		</div>
+
+
+
+
+
+
+
+	</form>
+</section>
+
+</html>

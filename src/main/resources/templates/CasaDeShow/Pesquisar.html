@@ -8,9 +8,33 @@
 </head>
 
 <section layout:fragment="conteudo">
-	<h1>Lista Das Casas</h1>
+	<h1 class="text-center">Casas de Show</h1>
 	<div>
-		<a href="/Casas/criar">Criar casa</a>
+		<a href="/Casas/criar">Criar casa |</a>
+		<a href="/Casas">Index</a>
+	</div>
+	
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="text-center col-md-1"></th>
+					<th class="text-center col-md-2">Endereco</th>
+					<th class="text-center col-md-2">Nome</th>
+					<th class="text-center col-md-1"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="casa : ${casas}">
+					<td class="text-center"></td>
+					<td class="text-center" th:text="${casa.Endereco}"> </td>
+					<td class="text-center" th:text="${casa.NomeDaCasa}"> </td>
+					<td class="text-center">x</td>
+				</tr>
+			</tbody>
+		
+		
+		</table>
 	</div>
 </section>
 

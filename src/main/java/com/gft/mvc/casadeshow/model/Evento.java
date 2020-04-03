@@ -2,15 +2,39 @@ package com.gft.mvc.casadeshow.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
 public class Evento {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int EventoId;
 	public String NomeDoEvento;
 	public int CapacidadeDoEvento;
 	public int QuantidadeDeIngressos;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
 	public Date DataDoEvento;
+	
 	public double ValorDoIngresso;
 	public String GeneroDoEvento;
+	@ManyToOne
+	private CasaDeShow casadeshow;
+	
+	public Evento() {
+		
+	}
+	
 
 	public int getEventoId() {
 		return EventoId;
@@ -66,6 +90,14 @@ public class Evento {
 
 	public void setGeneroDoEvento(String generoDoEvento) {
 		GeneroDoEvento = generoDoEvento;
+	}
+
+	public CasaDeShow getCasadeshow() {
+		return casadeshow;
+	}
+
+	public void setCasadeshow(CasaDeShow casadeshow) {
+		this.casadeshow = casadeshow;
 	}
 
 }
